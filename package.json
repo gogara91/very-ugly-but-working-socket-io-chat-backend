@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "express": "^4.17.1",
+    "ioredis": "^4.27.8",
+    "laravel-echo-server": "^1.6.2",
+    "socket.io": "^4.1.3"
+  }
+}

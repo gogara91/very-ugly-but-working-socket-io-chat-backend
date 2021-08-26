@@ -24,6 +24,12 @@ $api->version('v1', function (Router $api) {
                 'message' => 'Access to protected resources granted! You are seeing this text as you provided the token correctly.'
             ]);
         });
+        $api->get('users', 'App\\Api\\V1\\Controllers\\UsersController@index');
+        $api->get('messages', 'App\\Api\\V1\\Controllers\\MessagesController@index');
+        $api->post('messages', 'App\\Api\\V1\\Controllers\\MessagesController@store');
+        $api->post('messages/create-chatroom', 'App\\Api\\V1\\Controllers\\MessagesController@createChatroom');
+        $api->post('messages/create-message/{id}', 'App\\Api\\V1\\Controllers\\MessagesController@chatroomMessage');
+        $api->get('messages/chatrooms', 'App\\Api\\V1\\Controllers\\MessagesController@chatrooms');
 
         $api->get('refresh', [
             'middleware' => 'jwt.refresh',
